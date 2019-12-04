@@ -9,7 +9,7 @@
     "deep-get-set": "^0.1.1",
     "glob": "^5.0.12",
     "handlebars": "^4.0.0",
-    "lodash": "^3.10.0",
+    "lodash": "^4.17.15",
     "minimist": "^1.2.0",
     "mkdirp-then": "^1.1.0"
   },
