@@ -64,13 +64,13 @@ TemplateDriver.prototype._transform = function(templates) {
   }).sortBy(function(config) {
     return config.path.length;
   // Transform back to an object keyed by file name
-  }).transform(function (obj, config) {
+  }).transform((obj, config) => {
     var base = path.basename(config.path, path.extname(config.path));
     if (obj[base]) {
       this._debug(1, 'Overwriting %s with %s', chalk.yellow(base), chalk.grey(config.path));
     }
     obj[base] = config.contents;
-  }, {}, this);
+  }, {});
 
   return templates.value();
 };
@@ -100,7 +100,7 @@ TemplateDriver.prototype._compile = function(templates) {
  * @private
  */
 TemplateDriver.prototype._debug = function(level) {
-  var args = _.rest(arguments);
+  var args = _.tail(arguments);
   var debugLevel = this.debugLevel;
   //var args = [].slice.call(arguments, 1);
   if (debugLevel && level <= debugLevel ) {
